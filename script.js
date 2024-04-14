@@ -14,10 +14,15 @@ function minCost(arr) {
 
         // Insert the new rope in the correct position in the array
         let index = arr.findIndex((length) => length >= cost);
-        arr.splice(index, 0, cost);
+        
+        // If no rope is longer than the new rope, append it at the end
+        if (index === -1) {
+            arr.push(cost);
+        } else {
+            arr.splice(index, 0, cost);
+        }
     }
 
     return totalCost;
 }
-
 module.exports=mincost;
